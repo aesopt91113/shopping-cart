@@ -2,9 +2,32 @@ $(document).ready(function () {
   totalCost();
 
   // remove item
-  $('.remove').on('click', function (event) {
-      $(this).closest('tr').remove();
-  })
+  $('#cart').on('click', '.remove', function (event) {
+    $(this).closest('tr').remove();
+  });
+
+  //  updateItemList
+  $('#addItem').on('submit', function (event) {
+    event.preventDefault ();
+
+    var itemName = $(this).children('[name=itemName]').val();
+    var price = $(this).children('[name=Price]').val();
+    var quantity = $(this).children('[name=Quantity]').val();
+
+    $('tbody').append('<tr>' +
+    '<td class="itemName">' + itemName + '</td>' +
+    '<td class="price">' + price + '</td>' +
+    '<td class="quantity">' + quantity + '</td>' +
+    '<td class="totalPrice"></td>' +
+    '<td><button class="btn btn-sm remove">remove</button></td>' +
+    '</tr>'
+    );
+
+    totalCost();
+    $(this).children('[name=name]').val('');
+    $(this).children('[name=price]').val('');
+    $(this).children('[name=quantity]').val('');
+  });
 });
 
 // getting total price for 1 item
@@ -33,18 +56,3 @@ var totalCost = function() {
   var totalCost = totalPrice.reduce(sum);
   $('#totalCost').html(totalCost);
 };
-
-
-// ---------------------------------------------------------------------
-//  updateItemList
-// $('#addItem').on('submit', function (event) {
-//   event.preventDefault ();
-//
-//   var itemName = $(this).children('[name = Item name]').val();
-//   var shares = $(this).children('[name = Price]').val();
-//
-// })
-
-
-
-// creating new item row, calucating price, deleting an item

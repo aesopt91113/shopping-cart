@@ -30,7 +30,7 @@
               <th>Total quantity price</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="cart">
             <!-- item list -->
             <tr>
               <td class='name'>Apple</td>
@@ -42,13 +42,15 @@
           </tbody>
         </table>
       </div>
-      <div class = "col-12" id = "addItem">
+
+      <form class="col-12" id="addItem">
         <!-- form prompt for new items -->
-        <input name='Item name' type="text" placeholder="Item name" required/>
-        <input name='Price' type="number" placeholder='Price'>
-        <input name='Quantity' type="number" placeholder="Quantity">
-        <button class='btn btn-primary btn-md'>Add</button>
-      </div>
+        <input name='itemName' type="text" placeholder='Item name' required />
+        <input name='Price' type="number" placeholder='Price' step=".01" required />
+        <input name='Quantity' type="number" placeholder='Quantity' step="1" required />
+        <button type="submit" class='btn btn-primary btn-md'>Add</button>
+      </form>
+
       <div>
         <!-- total price -->
         <h1 class='col-12'>Total Cost: $ <span id='totalCost'></span></h1>
