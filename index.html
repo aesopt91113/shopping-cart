@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/application.js"></script>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class = "container-fluid">
+      <div class = "row">
+        <h1>Shopping Cart</h1>
+      </div>
+      <div class = "col-12">
+        <!-- shopping cart heading -->
+        <table class = "table table-responsive">
+          <thead>
+            <tr>
+              <th>Item name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total quantity price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- item list -->
+            <tr>
+              <td class='name'>Apple</td>
+              <td class='price'>10</td>
+              <td class='quantity'>5</td>
+              <td class='totalPrice'></td>
+              <td><button class='btn btn-sm remove'>Remove</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class = "col-12" id = "addItem">
+        <!-- form prompt for new items -->
+        <input name='Item name' type="text" placeholder="Item name" required/>
+        <input name='Price' type="number" placeholder='Price'>
+        <input name='Quantity' type="number" placeholder="Quantity">
+        <button class='btn btn-primary btn-md'>Add</button>
+      </div>
+      <div>
+        <!-- total price -->
+        <h1 class='col-12'>Total Cost: $ <span id='totalCost'></span></h1>
+      </div>
+    </div>
+  </body>
+</html>
